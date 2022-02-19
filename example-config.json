@@ -1,8 +1,16 @@
 {
-    "ssid": "ssid",
-    "psk": "supersecret",
-    "host": "192.168.0.30",
-    "port": 514,
-    "pin": 4,
-    "location": "outside"
+    "location": "outside",
+    "wifi_ssid": "ssid",
+    "wifi_psk": "psk",
+    "webrepl_enable": true,
+    "webrepl_password": "password",
+    "ntp_enable": true,
+    "ntp_host": null,
+    "broker_host": "mosquitto",
+    "broker_port": 1883,
+    "broker_user": null,
+    "broker_password": null,
+    "sensors": {
+        "outside": 4
+    }
 }

@@ -1,7 +1,7 @@
 # Wifi-remote ESP8266 and DHT22 Temperature and Humidity Logger
 
 These use a NodeMCU ESP8266 dev board, a DHT22 sensor, and a 10k pullup resistor.  
-Logs are sent by UDP syslog to local collector, no buffering or retries.
+Logs are sent by TCP MQTT to local collector, no qos or retries.
 
 ## NodeMCU Setup
 
@@ -20,17 +20,6 @@ Hit reset button on NodeMCU
 Hit reset button on NodeMCU
 
     cu -s 115200 -l /dev/ttyUSB0
-
-## Syslog Host Setup
-
-Using Rsyslog
-
-    module(load="imudp")
-    input(type="imudp" port="514")
-    $RepeatedMsgReduction off
-    $template IotLogs,"/var/log/iot/%FROMHOST-IP%.log"
-    if $fromhost-ip startswith '192.168.' then ?IotLogs
-    & ~
 
 ## Doing more with the data
 
