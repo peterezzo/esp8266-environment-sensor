@@ -2,6 +2,7 @@
 
 These use a NodeMCU ESP8266 dev board, a DHT22 sensor, and a 10k pullup resistor.  
 Logs are sent by TCP MQTT to local collector, no qos or retries.
+The system deep sleeps after sending each measurement, waking once per minute.
 
 ## NodeMCU Setup
 
@@ -13,13 +14,14 @@ Hold flash button and hit reset on NodeMCU
 Hit reset button on NodeMCU
 
     ampy --port /dev/ttyUSB0 ls
-    ampy --port /dev/ttyUSB0 put main.py main.py
+    ampy --port /dev/ttyUSB0 put main.py
+    ampy --port /dev/ttyUSB0 put environment.py
     ampy --port /dev/ttyUSB0 put outside-config.json config.json
     ampy --port /dev/ttyUSB0 ls
 
 Hit reset button on NodeMCU
 
-    cu -s 115200 -l /dev/ttyUSB0
+    screen /dev/ttyUSB0 115200
 
 ## Doing more with the data
 
